@@ -8,5 +8,5 @@ line2
 line3
 sdf
 ***sdf***
-
+<i>test</i>
 <b>bold2</b>
