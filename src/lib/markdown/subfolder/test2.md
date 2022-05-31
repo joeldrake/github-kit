@@ -12,7 +12,6 @@ sdf
 let code = true;
 function test() {}
 ```
-<u>under</u>
 
 ~~123~~
 sdf
