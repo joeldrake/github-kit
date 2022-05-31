@@ -1,20 +1,15 @@
-import { getToken } from '$lib/utils/getToken';
 import { Octokit } from 'octokit';
+import { owner, repo } from '$lib/constants';
 
-export async function fetchFiles(
-	inputs: {
-		owner: string;
-		repo: string;
-		path: string;
-	},
-	token?: string
-) {
+export async function fetchFiles(path: string, auth: string) {
 	try {
-		const octokit = new Octokit({
-			auth: token || getToken()
-		});
+		const octokit = new Octokit({ auth });
 
-		const data = await octokit.request('GET /repos/{owner}/{repo}/contents/{path}', inputs as any);
+		const data = await octokit.request('GET /repos/{owner}/{repo}/contents/{path}', {
+			owner,
+			repo,
+			path
+		});
 
 		return data;
 	} catch (error) {

@@ -10,6 +10,12 @@ if (!browser && process?.env?.VERCEL === '1') {
 	GITHUB_CLIENT_SECRET = import.meta.env.VITE_GITHUB_CLIENT_SECRET;
 }
 
+// hardcoded github repo
+export const owner = 'joeldrake';
+export const repo = 'github-kit';
+
+export const filesBasePath = 'src/lib/markdown';
+export const filesRoute = '/files';
 export const siteUrl = 'http://localhost:3000';
 export const scopes = 'repo user';
 export const redirect_uri = siteUrl + '/callback';

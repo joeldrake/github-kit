@@ -2,24 +2,30 @@ import type { RequestEvent } from '@sveltejs/kit/types/';
 import { fetchFiles } from '$lib/api/fetchFiles';
 import { cookiesFromRequest } from '$lib/utils/cookiesFromRequest';
 import { octokitResponseFilter } from '$lib/utils/octokitResponseFilter';
+import { filesBasePath, filesRoute } from '$lib/constants';
 
-export async function get({ request, params }: RequestEvent) {
+export async function get({ request, params, url }: RequestEvent) {
 	const accessToken = cookiesFromRequest(request)?.accessToken;
 
 	const { path } = params;
 
-	const source = {
-		owner: 'joeldrake',
-		repo: 'github-kit',
-		path
-	};
+	if (url.pathname.length <= `${filesRoute}/${filesBasePath}`.length) {
+		// invalid path, redirect to begining
+		return {
+			status: 303,
+			headers: {
+				location: filesRoute
+			}
+		};
+	}
 
-	const response = await fetchFiles(source, accessToken);
+	const response = await fetchFiles(path, accessToken);
 
 	if (response?.status === 200) {
-		//only filter out md files and folders
-		let files, file;
+		let files = [] as App.OctokitResponseItem[];
+		let file = null as App.OctokitResponseItem | null;
 		if (Array.isArray(response.data)) {
+			//only filter out md files and folders
 			files = (response.data as App.OctokitResponseItem[]).filter(octokitResponseFilter);
 		} else {
 			file = response.data as App.OctokitResponseItem;
@@ -30,6 +36,6 @@ export async function get({ request, params }: RequestEvent) {
 	}
 
 	return {
-		status: 404
+		status: 403
 	};
 }

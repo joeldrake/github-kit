@@ -1,17 +1,22 @@
 <script lang="ts">
-	export let files: App.OctokitResponseItem[] | App.OctokitResponseItem | undefined;
-	export let file: App.OctokitResponseItem | undefined;
+	import { filesBasePath } from '$lib/constants';
+	import File from '$lib/components/File.svelte';
+	import Files from '$lib/components/Files.svelte';
+	export let files: App.OctokitResponseItem[];
+	export let file: App.OctokitResponseItem | null;
 </script>
 
 <a href="/">Start</a>
 
-{#if files}
-	{#each files as _file}
-		<div>
-			<a href={`/files/${_file.path}`}>{_file.name}</a>
-		</div>
-	{/each}
-	<pre>{JSON.stringify(files, null, 2)}</pre>
+{#if file}
+	<File {file} />
 {:else}
-	<p>Could not find files</p>
+	<Files {files} />
 {/if}
+
+<style>
+	a {
+		display: inline-block;
+		margin-bottom: 1rem;
+	}
+</style>

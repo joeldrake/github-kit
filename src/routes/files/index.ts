@@ -2,22 +2,18 @@ import type { RequestEvent } from '@sveltejs/kit/types/';
 import { fetchFiles } from '$lib/api/fetchFiles';
 import { cookiesFromRequest } from '$lib/utils/cookiesFromRequest';
 import { octokitResponseFilter } from '$lib/utils/octokitResponseFilter';
+import { filesBasePath } from '$lib/constants';
 
 export async function get({ request }: RequestEvent) {
 	const accessToken = cookiesFromRequest(request)?.accessToken;
 
-	const source = {
-		owner: 'joeldrake',
-		repo: 'github-kit',
-		path: 'src/lib/markdown'
-	};
-
-	const response = await fetchFiles(source, accessToken);
+	const response = await fetchFiles(filesBasePath, accessToken);
 
 	if (response?.status === 200) {
-		//only filter out md files and folders
-		let files, file;
+		let files = [] as App.OctokitResponseItem[];
+		let file = null as App.OctokitResponseItem | null;
 		if (Array.isArray(response.data)) {
+			//only filter out md files and folders
 			files = (response.data as App.OctokitResponseItem[]).filter(octokitResponseFilter);
 		} else {
 			file = response.data as App.OctokitResponseItem;
@@ -28,6 +24,6 @@ export async function get({ request }: RequestEvent) {
 	}
 
 	return {
-		status: 404
+		status: 403
 	};
 }

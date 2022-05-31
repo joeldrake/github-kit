@@ -4,12 +4,9 @@ import type { RequestEvent } from '@sveltejs/kit/types/';
 export async function get({ url }: RequestEvent) {
 	const code = url.searchParams.get('code');
 
-	console.log(code);
-
 	if (code) {
 		const access_token = await fetchToken(code);
 
-		console.log(access_token);
 		const future = new Date(Date.now() + 1000000000);
 		return {
 			status: 303,

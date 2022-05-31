@@ -7,6 +7,14 @@ declare namespace App {
 	// interface Platform {}
 	// interface Session {}
 	// interface Stuff {}
+
+	export interface saveFileParams {
+		path: string;
+		message: string;
+		content: string;
+		sha?: string;
+		auth: string;
+	}
 	export type OctokitResponseItem = {
 		type: string;
 		size: number;

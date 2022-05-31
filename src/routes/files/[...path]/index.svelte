@@ -1,11 +1,28 @@
 <script lang="ts">
-	export let files: App.OctokitResponseItem[] | App.OctokitResponseItem | undefined;
+	import { page } from '$app/stores';
+	import { filesBasePath, filesRoute } from '$lib/constants';
+	import File from '$lib/components/File.svelte';
+	import Files from '$lib/components/Files.svelte';
+	export let files: App.OctokitResponseItem[];
+	export let file: App.OctokitResponseItem | null;
+	let backUrl: string;
+	$: {
+		let stepBack = $page.url.pathname.split('/').slice(0, -1).join('/');
+		backUrl = stepBack.length <= `${filesRoute}/${filesBasePath}`.length ? filesRoute : stepBack;
+	}
 </script>
 
-<a href="/files">Files</a>
+<a href={backUrl}>Back</a>
 
-{#if files}
-	<pre>{JSON.stringify(files, null, 2)}</pre>
+{#if file}
+	<File {file} />
 {:else}
-	<p>Could not find files</p>
+	<Files {files} />
 {/if}
+
+<style>
+	a {
+		display: inline-block;
+		margin-bottom: 1rem;
+	}
+</style>

@@ -31,7 +31,13 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@lexical/code": "^0.2.9",
+		"@lexical/list": "^0.2.9",
+		"@lexical/rich-text": "^0.2.9",
+		"@lexical/selection": "^0.2.9",
+		"@lexical/utils": "^0.2.9",
 		"cookie": "^0.5.0",
+		"lexical": "^0.2.9",
 		"octokit": "^1.7.1"
 	}
 }
