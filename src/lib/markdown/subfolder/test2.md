@@ -5,7 +5,7 @@ sdf
 > asd
 > 123
 
-123
+~~123~~
 sdf
 ***sdf***
 <i>test</i>
