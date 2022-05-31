@@ -5,10 +5,10 @@
 Text.
 One linebreak
 
-*bold1*
+*italic*
 
 
-_underline_
+_italic2_
 
 
 <b>bold2</b>
