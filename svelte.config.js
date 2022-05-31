@@ -8,7 +8,15 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		vite: {
+			resolve: {
+				alias: {
+					// from https://github.com/octokit/octokit.js/issues/2126#issuecomment-1005023857
+					'node-fetch': 'isomorphic-fetch'
+				}
+			}
+		}
 	}
 };
 

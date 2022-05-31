@@ -204,12 +204,12 @@
 				<span class="active" />
 			{/if}
 		</button>
-		<!--<button class="item" on:click={formatCode}>
-      <span class="icon code" />
-      <span class="text">Code Block</span>
-      {#if $blockType === "code"}
-        <span class="active" />
-      {/if}
-    </button>-->
+		<button class="item" on:click={formatCode}>
+			<span class="icon code" />
+			<span class="text">Code Block</span>
+			{#if $blockType === 'code'}
+				<span class="active" />
+			{/if}
+		</button>
 	</div>
 {/if}

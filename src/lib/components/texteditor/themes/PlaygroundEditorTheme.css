@@ -14,8 +14,6 @@
 	text-align: right;
 }
 .PlaygroundEditorTheme__paragraph {
-	margin: 0;
-	margin-bottom: 8px;
 	position: relative;
 }
 .PlaygroundEditorTheme__paragraph:last-child {
@@ -23,39 +21,13 @@
 }
 .PlaygroundEditorTheme__quote {
 	margin: 0;
-	margin-left: 20px;
-	margin-bottom: 10px;
-	font-size: 15px;
-	color: rgb(101, 103, 107);
-	border-left-color: rgb(206, 208, 212);
-	border-left-width: 4px;
-	border-left-style: solid;
-	padding-left: 16px;
+	margin-left: 2rem;
+	margin-bottom: 0;
+	color: var(--color-text-secondary);
+	border-left: 4px solid var(--color-border);
+	padding-left: 1rem;
 }
-.PlaygroundEditorTheme__h1 {
-	font-size: 24px;
-	color: rgb(5, 5, 5);
-	font-weight: 400;
-	margin: 0;
-	margin-bottom: 12px;
-	padding: 0;
-}
-.PlaygroundEditorTheme__h2 {
-	font-size: 15px;
-	color: rgb(101, 103, 107);
-	font-weight: 700;
-	margin: 0;
-	margin-top: 10px;
-	padding: 0;
-	text-transform: uppercase;
-}
-.PlaygroundEditorTheme__h3 {
-	font-size: 12px;
-	margin: 0;
-	margin-top: 10px;
-	padding: 0;
-	text-transform: uppercase;
-}
+
 .PlaygroundEditorTheme__textBold {
 	font-weight: bold;
 }
@@ -92,12 +64,12 @@
 	background-color: rgb(240, 242, 245);
 	font-family: Menlo, Consolas, Monaco, monospace;
 	display: block;
-	padding: 8px 8px 8px 52px;
-	line-height: 1.53;
-	font-size: 13px;
+	padding: 0.5rem 0.5rem 0.5rem 2.5rem;
+	line-height: 1.5;
+	font-size: 14px;
 	margin: 0;
-	margin-top: 8px;
-	margin-bottom: 8px;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 	tab-size: 2;
 	/* white-space: pre; */
 	overflow-x: auto;
@@ -110,7 +82,7 @@
 	left: 0;
 	top: 0;
 	border-right: 1px solid #ccc;
-	padding: 8px;
+	padding: 0.5rem;
 	color: #777;
 	white-space: pre-wrap;
 	text-align: right;

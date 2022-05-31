@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { browser } from '$app/env';
 	import { decode, encode } from '$lib/utils/base64';
 	import ExternalLink from '$lib/components/icons/external-link.svelte';
 	import TextEditor from '$lib/components/texteditor/TextEditor.svelte';
@@ -10,11 +9,20 @@
 
 	let originalContent = decode(file.content);
 
+	async function handleSave(e: CustomEvent) {
+		textarea.value = e.detail;
+		save(e.detail);
+	}
+
 	async function handleSaveClick() {
+		save(textarea.value);
+	}
+
+	async function save(markdown: string) {
 		isSaving = true;
 
 		try {
-			const content = encode(textarea.value);
+			const content = encode(markdown);
 			const data: Omit<App.saveFileParams, 'auth'> = {
 				path: file.path,
 				sha: file.sha,
@@ -49,7 +57,7 @@
 		{file.name} <a href={file.html_url} target="_blank"><ExternalLink /></a>
 	</h1>
 
-	<TextEditor />
+	<TextEditor initialEditorState={originalContent} on:save={handleSave} />
 
 	<textarea bind:this={textarea}>{originalContent}</textarea>
 

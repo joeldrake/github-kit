@@ -7,6 +7,7 @@
 
 	import {
 		isBold,
+		isCode,
 		isItalic,
 		isUnderline,
 		isStrikethrough,
@@ -27,6 +28,7 @@
 
 			// Update text format
 			$isBold = selection.hasFormat('bold');
+			$isCode = selection.hasFormat('code');
 			$isItalic = selection.hasFormat('italic');
 			$isUnderline = selection.hasFormat('underline');
 			$isStrikethrough = selection.hasFormat('strikethrough');

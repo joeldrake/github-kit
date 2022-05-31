@@ -1,10 +1,14 @@
+/* eslint-disable no-empty */
 import { Octokit } from 'octokit';
-// Create a personal access token at https://github.com/settings/tokens/new?scopes=repo
-const octokit = new Octokit({ auth: `personal-access-token123` });
+import { getToken } from '$lib/utils/getToken';
 
-// Compare: https://docs.github.com/en/rest/reference/users#get-the-authenticated-user
-const {
-	data: { login }
-} = await octokit.rest.users.getAuthenticated();
+const octokit = new Octokit({ auth: getToken() });
 
-console.log('Hello, %s', login);
+export async function getAuthenticated() {
+	let login = false;
+	try {
+		login = !!(await (await octokit.rest.users.getAuthenticated()).data.login);
+	} catch {}
+
+	return login;
+}
