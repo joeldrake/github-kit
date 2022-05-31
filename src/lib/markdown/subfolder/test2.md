@@ -2,8 +2,10 @@
 
 ## Headeline 2
 
-Text.
-One linebreak
+line
+new
+line2
+line3
 sdf
 ***sdf***
 
