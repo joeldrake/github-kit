@@ -4,7 +4,12 @@ sdf
 > asd
 > asd
 > 123
+`let code = true;`
 
+```
+let code = true;
+function test() {}
+```
 <u>under</u>
 
 ~~123~~
