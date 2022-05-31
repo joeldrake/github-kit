@@ -17,7 +17,6 @@
 	import { ListItemNode, ListNode } from '@lexical/list';
 	import { CodeNode, CodeHighlightNode } from '@lexical/code';
 	import { LinkNode } from '@lexical/link';
-	import { TableNode, TableCellNode, TableRowNode } from '@lexical/table';
 	import { ImageNode } from './plugins/ImageNode';
 
 	import { createEditor } from 'lexical';
