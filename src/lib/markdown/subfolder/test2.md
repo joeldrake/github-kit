@@ -6,7 +6,7 @@ sdf
 > 123
 `let code = true;`
 
-```
+```javascript
 let code = true;
 function test() {}
 ```
