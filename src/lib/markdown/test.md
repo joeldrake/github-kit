@@ -1,5 +1,5 @@
 ---
-title: 'Programmering — grunden med javascript'
+title: 'Programmering — grunden med javascript2'
 image:
   url: '/assets/blog/computermagic.jpg'
   width: 1200,
@@ -120,7 +120,7 @@ antal = antal + 5;
 // antal är nu 15 (förresten, så här ser en kommentar i koden ut)
 ```
 
-Variabler kan _deklareras_ med `let` eller `const` i javascript. let skapar en variabel som kan ändras senare i koden, const (står för "constant") är menad att inte ändras efter den är satt. Att det finns olika sätt är tänkt att fungera som ett stöd för att undvika buggar 🐛 i koden.
+Variabler kan *deklareras* med `let` eller `const` i javascript. let skapar en variabel som kan ändras senare i koden, const (står för "constant") är menad att inte ändras efter den är satt. Att det finns olika sätt är tänkt att fungera som ett stöd för att undvika buggar 🐛 i koden.
 
 ### De olika typer en variabel kan ha
 
@@ -154,7 +154,7 @@ I takt med att javascript har utvecklats har det här tänket börjat användas 
 
 ## if-satser
 
-En if-sats låter dig köra utvald kod när det du testar i if-satsen är `true`. Observera att det som anges i if-satsens parentes _exekveras_ för att kolla om värdet är true/false.
+En if-sats låter dig köra utvald kod när det du testar i if-satsen är `true`. Observera att det som anges i if-satsens parentes *exekveras* för att kolla om värdet är true/false.
 
 Du kan ange en boolean variabel, eller vilken annan typ av variabel som helst, om den har ett värde så kommer den anses vara true. Det finns några specialregler här som t.ex. att siffran 0 är false och även en tom sträng är false.
 
@@ -197,7 +197,7 @@ if (namn !== 'Kalle') {
 
 ### Operatorer
 
-Det finns en uppsjö av [operatorer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators) för att ändra eller kontrollera värden i koden. Här är en förteckning av de vanligaste.
+Det finns en uppsjö av [operatorer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions*and*Operators) för att ändra eller kontrollera värden i koden. Här är en förteckning av de vanligaste.
 
 | Operator | Förklaring                         | Exempel  |
 | -------- | ---------------------------------- | -------- |
@@ -249,7 +249,7 @@ let antal = add(5, 5);
 // antal är nu 10
 ```
 
-Man kan sätta ett namn på sin funktion som man sedan använder för att kalla på den, som i exemplen ovan. Det går även att skapa _anonyma_ funktioner. De har inget namn och används på ställen där ett namn på funktionen skulle vara överflödigt. Dessa funktioner kallas också för `arrow functions` eftersom syntaxen har en form av "pil" i sig.
+Man kan sätta ett namn på sin funktion som man sedan använder för att kalla på den, som i exemplen ovan. Det går även att skapa *anonyma* funktioner. De har inget namn och används på ställen där ett namn på funktionen skulle vara överflödigt. Dessa funktioner kallas också för `arrow functions` eftersom syntaxen har en form av "pil" i sig.
 
 ```javascript
 (a, b) => {
@@ -268,11 +268,11 @@ alert(namn());
 // Kommer skicka upp en alert() med texten "Kalle"
 ```
 
-Observera att det finns en _mängd_ inbyggda funktioner i javascript. Till exempel `alert()` som i exemplet ovan är en inbyggd funktion som skickar upp en ruta med valfri text. En annan vanligt förekommande är `fetch()` som används för att hämta data över nätverket.
+Observera att det finns en *mängd* inbyggda funktioner i javascript. Till exempel `alert()` som i exemplet ovan är en inbyggd funktion som skickar upp en ruta med valfri text. En annan vanligt förekommande är `fetch()` som används för att hämta data över nätverket.
 
 ## Iterationer/loopar
 
-Iterationer kallas oftast i svenskt talspråk för loopar. På engelska säger man dock _iteration_ så det kan vara enklast att förhålla sig till det (det internationella språket som används inom programmeringskod är engelska).
+Iterationer kallas oftast i svenskt talspråk för loopar. På engelska säger man dock *iteration* så det kan vara enklast att förhålla sig till det (det internationella språket som används inom programmeringskod är engelska).
 
 En iteration är en instruktion i koden att en viss sak ska hända upprepade gånger.
 
@@ -286,7 +286,7 @@ for (let index = 0; index < 100; index++) {
 // antal är nu 100
 ```
 
-Exemplet ovan är en _klassik_ syntax för iteration som förekommer i en del andra programmeringsspråk också.
+Exemplet ovan är en *klassik* syntax för iteration som förekommer i en del andra programmeringsspråk också.
 
 Det finns många andra sätt att göra iterationer i javascript. Vissa metoder är lämpade för att ändra en lista till en annan form. Andra former är lämpade för att filtrera en lista till ett mindre antal.
 
@@ -313,7 +313,7 @@ const urval = listaMedNummer.filter((antal) => {
 
 ## Sammanfattning
 
-Det här inlägget skrapar på ytan av _vissa delar_ av programmering med javascript. Jag hoppas det har gett dig en lite bättre insikt i denna värld. Jag har insett att det är ett ganska stort åtagande att försöka täcka in allt i ett enskilt blogginlägg... 😅
+Det här inlägget skrapar på ytan av *vissa delar* av programmering med javascript. Jag hoppas det har gett dig en lite bättre insikt i denna värld. Jag har insett att det är ett ganska stort åtagande att försöka täcka in allt i ett enskilt blogginlägg... 😅
 
 Om du vill lära dig vidare så är min rekommendation att ladda ner textredigeraren [Visual Studio Code](https://code.visualstudio.com/), skapa en fil med filändelsen `.html` och börja testa dig fram.
 
@@ -323,4 +323,4 @@ När du kommit en bit på vägen och vill börja utforska mer avancerad webbutve
 
 <br />
 
-_Det här inlägget kan komma att uppdateras i framtiden_
+*Det här inlägget kan komma att uppdateras i framtiden*
