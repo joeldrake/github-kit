@@ -1,15 +1,7 @@
 ## Headline
 
 <i>test</i>
-
 <b>bold2</b>
-
-```html
-<div>
-	<h4>Hej, det här är en rubrik 👋</h4>
-	<p>Det här är en paragraf med <i>kursiv text</i></p>
-</div>
-```
 
 | Operator | Förklaring                         | Exempel  |
 | -------- | ---------------------------------- | -------- |
@@ -30,3 +22,10 @@
 | <=       | Mindre eller lika med              | a <= b   |
 | \|\|     | Eller                              | a \|\| b |
 | &&       | Och                                | a && b   |
+
+```html
+<div>
+	<h4>Hej, det här är en rubrik 👋</h4>
+	<p>Det här är en paragraf med <i>kursiv text</i></p>
+</div>
+```
