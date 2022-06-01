@@ -14,7 +14,7 @@
 </script>
 
 <script lang="ts">
-	import '$lib/styles/github-dark.css';
+	import '$lib/styles/vs-2015.css';
 	import { authUrl, filesRoute } from '$lib/constants';
 	import { getAuthenticated } from '$lib/utils/octokit';
 	import { onMount } from 'svelte';
@@ -26,6 +26,7 @@
 
 	onMount(async () => {
 		isLoggedIn = await getAuthenticated();
+		console.log(frontmatter);
 	});
 </script>
 
@@ -42,7 +43,10 @@
 		</p>
 	{/if}
 
-	<div>{@html html}</div>
+	<div>
+		{#if frontmatter?.title} <h1>{frontmatter.title}</h1>{/if}
+		{@html html}
+	</div>
 </div>
 
 <style>
@@ -52,6 +56,7 @@
 
 	.start :global(table) {
 		border-collapse: collapse;
+		margin-bottom: 1rem;
 	}
 	.start :global(th) {
 		padding: 0 1rem;

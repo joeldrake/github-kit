@@ -14,10 +14,11 @@ export default async function markdownToHtml(markdown: string) {
 			const yaml: any = tree.children.find((item) => item.type === 'yaml');
 			if (yaml) frontmatter = yamlToJson.load(yaml.value);
 		})
-		.use(remarkRehype)
-		.use(rehypeHighlight)
+
 		.use(remarkGfm)
-		.use(rehypeStringify)
+		.use(remarkRehype, { allowDangerousHtml: true })
+		.use(rehypeHighlight)
+		.use(rehypeStringify, { allowDangerousHtml: true })
 		.process(markdown);
 
 	return { frontmatter, html: result.toString() };
