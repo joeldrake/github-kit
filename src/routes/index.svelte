@@ -65,4 +65,9 @@
 		border: 1px solid var(--color-border);
 		padding: 0.5rem 1rem;
 	}
+
+	.start :global(p code) {
+		background-color: yellow;
+		padding: 0.1rem 0.2rem;
+	}
 </style>
