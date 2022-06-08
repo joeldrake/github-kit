@@ -1,7 +1,7 @@
 ## Headline
 ---
 [x] check
-[ ] not check
+[] not check
 
 | Operator | Förklaring | Exempel |
 | -------- | ---------------------------------- | -------- |
