@@ -1,7 +1,7 @@
 ## Headline
 ---
-- [x] check
-- [ ] not check
+[x] check
+[ ] not check
 
 | Operator | Förklaring | Exempel |
 | -------- | ---------------------------------- | -------- |
@@ -20,7 +20,7 @@
 | < | Mindre än | a < b |
 | >= | Större eller lika med | a >= b |
 | <= | Mindre eller lika med | a <= b |
-| || | Eller | a || b |
+| \|\| | Eller | a \|\| b |
 | && | Och | a && b |
 
 ```html
