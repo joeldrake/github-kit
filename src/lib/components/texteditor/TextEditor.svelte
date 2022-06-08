@@ -1,28 +1,38 @@
 <script lang="ts">
 	import './global.css';
 	import { createEventDispatcher } from 'svelte';
+
+	import { createEditor, type EditorState } from 'lexical';
+
 	import {
 		$convertFromMarkdownString as convertFromMarkdownString,
-		$convertToMarkdownString as convertToMarkdownString,
-		TRANSFORMERS
+		$convertToMarkdownString as convertToMarkdownString
 	} from '@lexical/markdown';
+
+	import { CUSTOM_TRANSFORMERS } from './MarkdownTransformers';
 
 	import RichTextPlugin from './plugins/RichTextPlugin.svelte';
 	import CodePlugin from './plugins/CodePlugin.svelte';
 	import HistoryPlugin from './plugins/HistoryPlugin.svelte';
 	import ListPlugin from './plugins/ListPlugin.svelte';
 	import ImagePlugin from './plugins/ImagePlugin.svelte';
+	import HorizontalRulePlugin from './plugins/HorizontalRulePlugin.svelte';
 
 	import { HeadingNode, QuoteNode } from '@lexical/rich-text';
 	import { ListItemNode, ListNode } from '@lexical/list';
 	import { CodeNode, CodeHighlightNode } from '@lexical/code';
+	import { TableCellNode, TableNode, TableRowNode } from '@lexical/table';
 	import { LinkNode } from '@lexical/link';
 	import { ImageNode } from './plugins/ImageNode';
+	import { HorizontalRuleNode } from './plugins/HorizontalRuleNode';
+	import { registerTableCommands } from './tabelCommands';
 
-	import { createEditor } from 'lexical';
 	import { onMount, setContext } from 'svelte';
 	import PlaygroundEditorTheme from './themes/PlaygroundEditorTheme';
 	import Toolbar from './Toolbar.svelte';
+
+	export let initialMarkdown: string;
+	export let isSaving = false;
 
 	export let config = {
 		theme: PlaygroundEditorTheme,
@@ -34,14 +44,17 @@
 			QuoteNode,
 			ImageNode,
 			CodeNode,
-			CodeHighlightNode
+			CodeHighlightNode,
+			TableCellNode,
+			TableNode,
+			TableRowNode,
+			HorizontalRuleNode
 		],
 		onError: (error: any) => {
 			throw error;
 		}
 	};
-	export let initialEditorState: string;
-	export let isSaving = false;
+
 	let contentEditableElement: HTMLElement;
 	const editor = createEditor(config);
 	const dispatch = createEventDispatcher();
@@ -49,22 +62,19 @@
 	setContext('editor', editor);
 	onMount(() => {
 		editor.setRootElement(contentEditableElement);
-		initEditor();
+		registerTableCommands(editor);
 	});
 
-	function initEditor() {
-		//registerRichText(editor);
+	function initialEditorState() {
+		convertFromMarkdownString(initialMarkdown, CUSTOM_TRANSFORMERS);
 
-		editor.update(() => {
-			convertFromMarkdownString(initialEditorState, TRANSFORMERS);
-			const markdown = convertToMarkdownString(TRANSFORMERS);
-			console.log(markdown);
-		});
+		//const markdown = convertToMarkdownString(TRANSFORMERS);
+		//console.log(markdown);
 	}
 
 	function handleSaveClick() {
 		editor.update(() => {
-			const markdown = convertToMarkdownString(TRANSFORMERS);
+			const markdown = convertToMarkdownString(CUSTOM_TRANSFORMERS);
 			dispatch('save', markdown);
 		});
 	}
@@ -75,11 +85,12 @@
 	<div class="editor-container">
 		<div contenteditable="true" bind:this={contentEditableElement} class="ContentEditable__root" />
 		<!-- slot for plugins -->
-		<RichTextPlugin />
+		<RichTextPlugin {initialEditorState} />
 		<CodePlugin />
 		<HistoryPlugin />
 		<ListPlugin />
 		<ImagePlugin />
+		<HorizontalRulePlugin />
 	</div>
 	<button disabled={isSaving} on:click={handleSaveClick}>{isSaving ? 'Sparar...' : 'Spara'}</button>
 </div>

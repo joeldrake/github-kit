@@ -183,6 +183,13 @@
 				<span class="active" />
 			{/if}
 		</button>
+		<button class="item" on:click={formatVerySmallHeading}>
+			<span class="icon h3" />
+			<span class="text">Smaller Heading</span>
+			{#if $blockType === 'h3'}
+				<span class="active" />
+			{/if}
+		</button>
 		<button class="item" on:click={formatBulletList}>
 			<span class="icon bullet-list" />
 			<span class="text">Bullet List</span>

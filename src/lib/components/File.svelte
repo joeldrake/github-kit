@@ -57,7 +57,7 @@
 		{file.name} <a href={file.html_url} target="_blank"><ExternalLink /></a>
 	</h1>
 
-	<TextEditor initialEditorState={originalContent} on:save={handleSave} />
+	<TextEditor initialMarkdown={originalContent} on:save={handleSave} />
 
 	<textarea bind:this={textarea}>{originalContent}</textarea>
 

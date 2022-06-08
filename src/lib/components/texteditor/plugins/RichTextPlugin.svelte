@@ -1,13 +1,15 @@
-<script>
-  import { onMount, getContext } from 'svelte';
-  import { registerRichText } from '@lexical/rich-text';
+<script lang="ts">
+	import { onMount, getContext } from 'svelte';
+	import { registerRichText, type InitialEditorStateType } from '@lexical/rich-text';
+	import type { LexicalEditor } from 'lexical';
 
-  const editor = getContext('editor');
+	const editor: LexicalEditor = getContext('editor');
+	export let initialEditorState: InitialEditorStateType;
 
-  // returns callback to unregister
-  onMount(() => registerRichText(editor));
+	// returns callback to unregister
+	onMount(() => registerRichText(editor, initialEditorState));
 
-  // TODO: add Dragon support - registerDragonSupport(editor)
-  // TODO: add support for placeholder text
-  // TODO: take care of decorators - useDecorators(editor)
+	// TODO: add Dragon support - registerDragonSupport(editor)
+	// TODO: add support for placeholder text
+	// TODO: take care of decorators - useDecorators(editor)
 </script>
